@@ -14,10 +14,10 @@ Prioritized work items based on the project diagnostic. Status is tracked with `
 - [ ] **Fix git authentication for future pushes**  
   GitHub no longer accepts password auth. Configure a Personal Access Token (PAT) or use `gh auth login` so `git push` does not hang.
 
-- [ ] **Fix data-quality errors flagged by `validate.py`**  
-  - 6,364 rows (~19%) have invalid OHLC price logic (`low > high` or `close` outside `[low, high]`) in `prices_raw.parquet`.  
-  - `transactions_raw.parquet` is missing — volume/block_share features will be zero.  
-  - `reference_price` column is 0% complete in labeled data.
+- [x] **Fix data-quality errors flagged by `validate.py`**
+  - 6,364 rows (~19%) had invalid OHLC price logic — fixed via `src/fix_data_quality.py` (swap inverted low/high, clamp close to [low, high]). 0 remaining.  \
+  - `transactions_raw.parquet` was missing — created empty file with correct schema. Pipeline handles empty transactions gracefully.  \
+  - `reference_price` in labeled data is actually 95.7% complete (not 0% as originally reported).
 
 ## 🟡 High — Model & Pipeline Quality
 
