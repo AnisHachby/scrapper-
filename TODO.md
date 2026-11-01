@@ -4,11 +4,11 @@ Prioritized work items based on the project diagnostic. Status is tracked with `
 
 ## 🔴 Critical — Stability & Environment
 
-- [ ] **Install missing Python dependencies**  
+- [x] **Install missing Python dependencies**  
   `matplotlib` and `seaborn` are listed in `requirements.txt` but not installed. Needed by `src/make_figures.py`.  
   `py -m pip install matplotlib seaborn`
 
-- [ ] **Fix `requirements.txt` gaps**  
+- [x] **Fix `requirements.txt` gaps**  
   The adapters and services import `httpx`, `fastapi`, `uvicorn` but they are not declared in `requirements.txt`. Add them so fresh installs work.
 
 - [ ] **Fix git authentication for future pushes**  
